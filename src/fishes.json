@@ -1,0 +1,86 @@
+[
+    {
+    "id": 1,
+    "name": "Mountain Sucker",
+    "latinName": "Catostomus platyrhynchus",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/MountainSuckerYNP.jpg/400px-MountainSuckerYNP.jpg",
+    "coNative": true
+    },
+    {
+        "id": 2,
+        "name": "Razorback Sucker",
+        "latinName": "Xyrauchen texanus",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Xyrauchen_texanus.jpg/400px-Xyrauchen_texanus.jpg",
+        "coNative": true
+    },
+    {
+        "id": 3,
+        "name": "Green Sunfish",
+        "latinName": "Lepomis cyanellus",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Green_sunfish_from_Walnut_Point_State_Park%2C_east-central_Illinois.jpg/400px-Green_sunfish_from_Walnut_Point_State_Park%2C_east-central_Illinois.jpg",
+        "coNative": true
+    },
+    {
+        "id": 4,
+        "name": "Warmouth",
+        "latinName": "Lepomis gulosus",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Chaenobryttus_gulosus.jpg/400px-Chaenobryttus_gulosus.jpg",
+        "coNative": true
+    },
+    {
+        "id": 5,
+        "name": "Johnny Darter",
+        "latinName": "Etheostoma nigrum",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Etheostoma_nigrum.jpg/400px-Etheostoma_nigrum.jpg",
+        "coNative": true
+    },
+    {
+        "id": 6,
+        "name": "CO River Cutthroat",
+        "latinName": "Oncorhynchus clarki pleuriticus",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Colo_river_cutthroat_BLM.jpg/400px-Colo_river_cutthroat_BLM.jpg",
+        "coNative": true
+    },
+    {
+        "id": 7,
+        "name": "Rio Grande Cutthroat",
+        "latinName": "Oncorhynchus clarki virginalis",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Rio_Grande_Cutthroat_Trout_Alamosa_watershed.jpg/400px-Rio_Grande_Cutthroat_Trout_Alamosa_watershed.jpg",
+        "coNative": true
+    },
+    {
+        "id": 8,
+        "name": "Golden Trout",
+        "latinName": "Oncorhynchus mykiss aguabonita",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/California_Golden_Trout.jpg/400px-California_Golden_Trout.jpg",
+        "coNative": false
+    },
+    {
+        "id": 9,
+        "name": "Yellow Perch",
+        "latinName": "Perca flavescens",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/YellowPerch.jpg/400px-YellowPerch.jpg",
+        "coNative": false
+    },
+    {
+        "id": 10,
+        "name": "Wiper Striped Bass",
+        "latinName": "M. chrysops × M. saxatilis",
+        "image": "https://upload.wikimedia.org/wikipedia/en/d/d5/Hybrid_Striped_Bass.jpg",
+        "coNative": false
+    },
+    {
+        "id": 11,
+        "name": "Tiger Muskellunge",
+        "latinName": "E. lucius × E. masquinongy",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tiger_Muskellunge_-_Tioga-Hammond_and_Cowanesque_Lakes_-_Pennsylvania_-_2013-06-03.jpg/400px-Tiger_Muskellunge_-_Tioga-Hammond_and_Cowanesque_Lakes_-_Pennsylvania_-_2013-06-03.jpg",
+        "coNative": false
+    },
+    {
+        "id": 12,
+        "name": "Arkansas River Shiner",
+        "latinName": "Notropis girardi",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Notropis_girardi.jpg/400px-Notropis_girardi.jpg",
+        "coNative": false
+    }
+]

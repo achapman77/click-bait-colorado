@@ -1,0 +1,21 @@
+.pictureBoard {
+    background-color:white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.pictureBox {
+    background-color: black;
+    height: 16.5rem;
+    margin: .5rem;
+    text-align: center;
+    width: 15rem;
+    
+}
+
+.pictureBox img {
+    width: 15rem;
+    height: 10rem;
+}
