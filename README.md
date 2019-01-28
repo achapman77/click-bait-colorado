@@ -17,12 +17,12 @@ Try for a perfect 12/12 Top Score.
 
 
 ## Future Improvements
-- [] Apply conditional css to game messages, score, and top score based on props.
-- [] Improve overall game aesthetics and make mobile ready.
-- [] Add "Harder" level game that tests knowledge of native vs non-native species
-- [] Add "Expert" level game that asks you to indentify the common name of fish
-- [] Add "God Mode" level game that asks for Scientific Name of the fish
-- [] Make game "white-label" ready to accept any info via admin interface that would be useful/fun for flash-cards:
+- [ ] Apply conditional css to game messages, score, and top score based on props.
+- [ ] Improve overall game aesthetics and make mobile ready.
+- [ ] Add "Harder" level game that tests knowledge of native vs non-native species
+- [ ] Add "Expert" level game that asks you to indentify the common name of fish
+- [ ] Add "God Mode" level game that asks for Scientific Name of the fish
+- [ ] Make game "white-label" ready to accept any info via admin interface that would be useful/fun for flash-cards:
     * Science
     * Math
     * Geography
