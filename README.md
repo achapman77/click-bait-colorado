@@ -1,6 +1,6 @@
 # CLICK BAIT 
 
-Live Demo: 
+Live Demo: https://dashboard.heroku.com/apps/click-bait-colorado
 
 
 ## Overview
