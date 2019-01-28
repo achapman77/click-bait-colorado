@@ -4,24 +4,10 @@ html, body {
   color: white;
 }
 
-.pictureBoard {
-  background-color:white;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.pictureBox {
-  background-color: black;
-  height: 16.5rem;
-  margin: .5rem;
-  text-align: center;
-  width: 15rem;
-  
-}
-
-.pictureBox img {
-  width: 15rem;
-  height: 10rem;
+html { 
+  background: url("https://www.sundanceresort.com/wp-content/uploads/2016/08/Sundance_FF_2017_0089-1600x1400-c-center.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

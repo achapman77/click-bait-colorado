@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import fishArray from './fishArray.json';
 import './App.css'
 import Scoreboard from './components/Scoreboard/scoreboard';
@@ -8,119 +9,123 @@ import FishCard from './components/FishCard/fishCard'
 import Footer from './components/Footer/footer'
 // npm package
 // import shuffle from 'shuffle-array';
+const PictureBoard = styled.div`
+  /* background-color:white; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 5rem auto 0 auto;
+  width: 80%;
+`
+
+
+const shuffleArray = (array) => {
+  let counter = array.length;
+  // While there are elements in the array
+  while (counter > 0) {
+      // Pick a random index
+      let index = Math.floor(Math.random() * counter);
+      // Decrease counter by 1
+      counter--;
+      // And swap the last element with it
+      let temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
+  }
+  return array;
+};
 
 class App extends Component {
   
   state = {
     fishArray,
-    score: 0,
-    highScore: 0,
-    message: "Click an image to Begin!",
+    currentScore: 0,
+    topScore: 0,
+    message: "",
+    clicked: [],
+    gameOver: false,
+    color: ""
+  }
+
+  componentDidMount() {
+    this.setState({message: "Click a Fish to Begin!"})
+  }
+
+  handleFishCardClick = (id) => {
+    if (!this.state.clicked.includes(id)) {
+      this.pointIncrease();
+      this.state.clicked.push(id);
+      this.setState({ gameOver: false });
+    } else {
+      this.resetGame();
+    }
   }
 
 
-  handleFishCardClick = (clickedId) => {
-    
-    this.shuffle(this.state.fishArray);
-
-    const updatedFishArray = fishArray;
-    let index = fishArray.findIndex(fishCard => fishCard.id === clickedId);
-
-    if (this.state.fishArray[index].clicked === true) {
+  pointIncrease = () => {
+    let score = this.state.currentScore + 1;
+    if (score === this.state.fishArray.length) {
       this.setState({
-        message: "Woops!  You clicked that tile already.  GAME OVER!"
+        message: "Winner! Winner! Fishy Dinner!",
+        color: "green",
+        topScore: score,
+        currentScore: 0,
+        clicked: [],
+        fishArray,
+        gameOver: false
       });
-      setTimeout(this.resetGame, 3000);
+    } else if (score > this.state.topScore) {
+      this.setState({
+        topScore: score,
+        currentScore: score,
+        message: "Awesome!  New High Score!",
+        color: "yellow"
+      });
     } else {
-      let newScore = this.state.score;
-      newScore++;
-      if (newScore === 12) {
-        this.setState({
-          message: "Winner!",
-          highScore: this.checkHighScore(newScore)
-        });
-        setTimeout(this.resetGame, 3000);
-      } else {
-        updatedFishArray[index].clicked = true;
-        this.setState({
-          message: "Nice!  You have not clicked that tile before!",
-          score: newScore,
-          highScore: this.checkHighScore(newScore),
-          fishArray: updatedFishArray
-        })
-      }
+      this.setState({
+        currentScore: score,
+        message: "Correct! Focus on the Fish!",
+        color: "blue"
+      });
     }
-  }
-
-  checkHighScore = (newScore) => {
-    let newHiScore = Math.max(newScore, this.state.highScore);
-
-    if (newScore < this.state.highScore) {
-      return this.state.highScore;
-    } else if (this.state.highScore === 12) {
-      return 12;
-    } else {
-      return newHiScore
-    }
+    this.resetFishArray();
   }
 
   resetGame = () => {
-    const updatedFishArray = fishArray;
-
-    updatedFishArray.map(fish => {
-      fish.clicked = false;
-    })
-    
     this.setState({
-      fishArray: updatedFishArray,
-      score: 0,
-      message: "Click an image to Begin!"
-    })
-    return true;
-  }
-    // Mix up the images inside the array 
-  // Fisher-Yates (aka Knuth) Shuffle
-  // http://sedition.com/perl/javascript-fy.html
-  //===============================================/
-  shuffle = (array) => {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  }
-  componentDidMount() {
-    
-    this.setState({
-      fishArray: this.shuffle(this.state.fishArray)
+      points: 0,
+      currentScore: 0,
+      topScore: this.state.topScore,
+      message: "Woops!  Better luck next time!",
+      color: "red",
+      clicked: [],
+      fishArray,
+      gameOver: true
     });
+    // this.gameLostMessages()
+    this.resetFishArray();
   }
+
+  resetFishArray = () => {
+    let newFishArray = shuffleArray(fishArray);
+    this.setState({ fishArray: newFishArray })
+  }
+
+  
   
   render() {
-    //uses 'shuffle' npm package
-    // const shuffledFishPics = shuffle(this.state.fishArray);
     
     return (
       <>
         <Scoreboard
-          
           message={this.state.message}
-          score={this.state.score}
-          highScore={this.state.highScore}
+          currentScore={this.state.currentScore}
+          topScore={this.state.topScore}
+          color={this.state.color}
         />
-        <GameInstruction />
-        <div className="pictureBoard">
+        {/* <GameInstruction /> */}
+        <PictureBoard>
           {this.state.fishArray.map(fish => (
               <FishCard
                   id={fish.id}
@@ -128,14 +133,13 @@ class App extends Component {
                   name={fish.name}
                   latinName={fish.latinName}
                   image={fish.image}
-                  native={fish.coNative}
-                  clicked={fish.clicked}
+                  co-native={fish.coNative}
                   handleFishCardClick={this.handleFishCardClick}
               />
           ))}
-        </div>
+        </PictureBoard>
           
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }
